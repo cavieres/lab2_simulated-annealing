@@ -1,5 +1,5 @@
 # Para ejecutar script, realizar en consola:
-# > setwd("C:\\Desarrollo\\lab2_simulated-annealing")
+# > setwd("<letra-unidad>:\\<carpeta-proyecto>")
 # > source("Lab2_simulated-annealing.R")
 # > SimulatedAnnealing()
 
