@@ -1,7 +1,12 @@
 # Para ejecutar script, realizar en consola:
 # > setwd("<letra-unidad>:\\<carpeta-proyecto>")
-# > source("Lab2_simulated-annealing.R")
+#   Ej: setwd("C:\\Users\\cavie\\desarrollo\\lab2_simulated-annealing")
+# > source("simulated-annealing.R")
 # > SimulatedAnnealing()
+
+# Incluir liberia QAP para 
+# calculos de costos.
+source("qap.R")
 
 # Funcion Objetivo.
 #fdx que se encarga de evaluar en la función los valores:
