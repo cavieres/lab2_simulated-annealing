@@ -1,6 +1,7 @@
 # Algoritmo QAP.
 # Para ejecutar script, realizar en consola:
 # > setwd("<letra-unidad>:\\<carpeta-proyecto>")
+#   Ej: setwd("C:\\Users\\cavie\\desarrollo\\lab2_simulated-annealing")
 # > source("qap.R")
 # > Costo()
 
@@ -45,8 +46,21 @@ Costo = function() {
   return(costo)
 }
 
-# Busqueda de vecindad
-# TODO: implementar metodo.
-Vecindad = function() {
+# Busqueda de vecindad aleatoria por medio de swap.
+N = function(s) {
   
+  sPrima = s
+  
+  instalacionInicial = sample(length(sPrima), 1)
+  
+  if (instalacionInicial == length(sPrima))
+    instalacionFinal = instalacionInicial - 1
+  else
+    instalacionFinal = instalacionInicial + 1
+  
+  aux = sPrima[instalacionInicial]
+  sPrima[instalacionInicial] = sPrima[instalacionFinal]
+  sPrima[instalacionFinal] = aux
+  
+  return(sPrima)
 }
