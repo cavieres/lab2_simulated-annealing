@@ -15,11 +15,11 @@ D <- matrix(c(0, 22, 53, 0, 22, 0, 40, 0, 53, 40, 0, 55, 0, 0, 55, 0), nrow = 4,
 
 # Ubicacion inicial.
 # TODO: Generar ubicaciones optimas desde algoritmo.
-ubicacion <- c(2, 1, 4, 3)
+# ubicaciones <- c(2, 1, 4, 3)
 
-# Ubicacion de instalacion i
-Fi = function(i) {
-  return(which(ubicacion == i))
+# Ubicacion de instalacion i en arreglo de ubicaciones
+Fi = function(i, ubicaciones) {
+  return(which(ubicaciones == i))
 }
 
 # Flujo entre las distancias i y j.
@@ -32,14 +32,14 @@ d = function(k, l) {
   return(D[k, l])
 }
 
-# Costo solucion (funcion objetivo)
-# TODO: pasar por parametro de funcion el arreglo de ubicaciones.
-Costo = function() {
+# Costo solucion (funcion objetivo) 
+# de arreglo de ubicaciones.
+Costo = function(ubicaciones) {
   costo = 0
   
-  for(i in 1:length(ubicacion)) {
-    for(j in i:length(ubicacion)) {
-        costo = costo + f(i, j) * d(Fi(i), Fi(j))
+  for(i in 1:length(ubicaciones)) {
+    for(j in i:length(ubicaciones)) {
+        costo = costo + f(i, j) * d(Fi(i, ubicaciones), Fi(j, ubicaciones))
     }
   }
   
