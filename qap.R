@@ -64,3 +64,8 @@ N = function(s) {
   
   return(sPrima)
 }
+
+# Generacion de solucion inicial.
+s0 = function() {
+  return(c(2, 1, 4, 3))
+}
