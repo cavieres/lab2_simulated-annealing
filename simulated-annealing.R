@@ -65,7 +65,7 @@ SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
       break
   }
   
-  return(Costo(sOptima)) # Mejor solucion encontrada.
+  return(sOptima) # Mejor solucion encontrada.
 }
 
 # Decrecimiento de temperatura lineal.
