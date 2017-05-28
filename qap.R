@@ -22,7 +22,7 @@ Fi = function(i, ubicaciones) {
   return(which(ubicaciones == i))
 }
 
-# Flujo entre las distancias i y j.
+# Flujo entre las instalaciones i y j.
 f = function(i, j) {
   return(F[i, j])
 }

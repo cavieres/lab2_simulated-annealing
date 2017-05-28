@@ -14,6 +14,8 @@ SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
   sOptima = s0() # Se asume que la solucion optima es la inicial.
   Temp = Tmax # Temperatura inicial.
   
+  repetTotal = 0
+  
   repeat
   {
     repetPorTemp = 0 # Contador de repeticiones por temperatura.
@@ -50,14 +52,14 @@ SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
       # Hasta condicion de equilibrio.
       if (repetPorTemp == maxRepPorTemp)
       {
-        repetPorTemp = 0 # Contador de repeticiones por temperatura. 
+        repetTotal = repetTotal + repetPorTemp
         break
       }
         
     }
     
-    Temp = gLinear(Tmax, repetPorTemp) # Actualizacion de temperatura.
-    
+    Temp = gLinear(Tmax, repetTotal) # Actualizacion de temperatura.
+    print(Temp)
     # Hasta criterio de detencion.
     if (Temp < Tmin)
       break
