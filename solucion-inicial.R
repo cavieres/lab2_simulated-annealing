@@ -29,7 +29,7 @@ SolucionInicial = function(flujosFile, distanciasFile) {
   suma_f
   
   #cargar arreglo de distancias:
-  distancias <-read.table("distancias.txt", header = FALSE)
+  distancias <-read.table(distanciasFile, header = FALSE)
   
   
   #creación del vector(arreglo de distancias):
@@ -63,7 +63,7 @@ SolucionInicial = function(flujosFile, distanciasFile) {
   
   #testear el valor de los arreglos para revisar el correcto funcionamiento:
   #solucion
-  #indice_flujos
+  print(flujos)
   #indice_distancias
   return(solucion)
 }
