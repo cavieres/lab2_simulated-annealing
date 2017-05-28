@@ -25,7 +25,8 @@ SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
       repetPorTemp = repetPorTemp + 1
     
       sPrima = N(s) # Generar un vecino aleatorio.
-      
+      print(Costo(s))
+      print(Costo(sPrima))
       deltaE = Costo(s) - Costo(sPrima)
       
       # Evaluacion para aceptar o no la solucion que minimiza la función:

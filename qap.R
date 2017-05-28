@@ -7,11 +7,11 @@
 
 # Matriz de flujos.
 #F <- matrix(c(0, 3, 0, 2, 3, 0, 0, 1, 0, 0, 0, 4, 2, 1, 4, 0), nrow = 4, ncol = 4)
-F <- read.table("inputs\\4x4-f.txt", header = FALSE)
+F <- read.table("inputs\\Lip20a-f.txt", header = FALSE)
 
 # Matriz de distancias
 #D <- matrix(c(0, 22, 53, 0, 22, 0, 40, 0, 53, 40, 0, 55, 0, 0, 55, 0), nrow = 4, ncol = 4)
-D <- read.table("inputs\\4x4-d.txt", header = FALSE)
+D <- read.table("inputs\\Lip20a-d.txt", header = FALSE)
 
 # Ubicacion de instalacion i en arreglo de ubicaciones
 Fi = function(i, ubicaciones) {
@@ -34,8 +34,14 @@ Costo = function(ubicaciones) {
   costo = 0
   
   for(i in 1:length(ubicaciones)) {
-    for(j in i:length(ubicaciones)) {
-        costo = costo + f(i, j) * d(Fi(i, ubicaciones), Fi(j, ubicaciones))
+    for(j in 1:length(ubicaciones)) {
+      
+      flujo = f(i, j)
+      distancia = d(Fi(i, ubicaciones), Fi(j, ubicaciones))
+      
+      if (!is.null(flujo) && !is.null(distancia)) {
+        costo = costo + flujo * distancia
+      }
     }
   }
   
