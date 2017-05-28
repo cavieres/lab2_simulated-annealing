@@ -2,7 +2,7 @@
 # > setwd("<letra-unidad>:\\<carpeta-proyecto>")
 #   Ej: setwd("C:\\Users\\cavie\\desarrollo\\lab2_simulated-annealing")
 # > source("simulated-annealing.R")
-# > SimulatedAnnealing()
+# > SimulatedAnnealing(500, 0.01, 6)
 
 # Incluir liberia QAP para 
 # calculos de costos.
@@ -10,8 +10,8 @@ source("qap.R")
 
 SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
 
-  s = s0 # Generacion de la solucion inicial.
-  sOptima = s0 # Se asume que la solucion optima es la inicial.
+  s = s0() # Generacion de la solucion inicial.
+  sOptima = s0() # Se asume que la solucion optima es la inicial.
   Temp = Tmax # Temperatura inicial.
   
   repeat
@@ -26,7 +26,7 @@ SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
       
       deltaE = Costo(s) - Costo(sPrima)
       
-      # Evaluacion para aceptar o no la solucion # que minimiza la función:
+      # Evaluacion para aceptar o no la solucion que minimiza la función:
       if(deltaE <= 0)
       {
         s = sPrima # Aceptar la solucion vecina.
@@ -56,12 +56,26 @@ SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
         
     }
     
-    Temp = g(Temp) # Actualizacion de temperatura.
+    Temp = gLinear(Tmax, repetPorTemp) # Actualizacion de temperatura.
     
-    # Criterio de detencion.
+    # Hasta criterio de detencion.
     if (Temp < Tmin)
       break
   }
   
   return(Costo(sOptima)) # Mejor solucion encontrada.
+}
+
+# Decrecimiento de temperatura lineal.
+gLinear = function(T0, i){
+  # TODO: obtener esta constante desde alguna confuguracion.
+  beta = 12 # Valor Cte
+  
+  return(T0 - i * beta)
+}
+
+# Decrecimiento de temperatura geometrica.
+# TODO: implementarla.
+gGeometric = function() {
+  
 }

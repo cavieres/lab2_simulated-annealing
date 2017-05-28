@@ -3,7 +3,7 @@
 # > setwd("<letra-unidad>:\\<carpeta-proyecto>")
 #   Ej: setwd("C:\\Users\\cavie\\desarrollo\\lab2_simulated-annealing")
 # > source("qap.R")
-# > Costo()
+# > Costo(c(2, 1, 4, 3))
 
 # Matriz de flujos.
 # TODO: leer flujos desde archivo de texto.
@@ -66,6 +66,7 @@ N = function(s) {
 }
 
 # Generacion de solucion inicial.
+# TODO: Implementarla.
 s0 = function() {
   return(c(2, 1, 4, 3))
 }
