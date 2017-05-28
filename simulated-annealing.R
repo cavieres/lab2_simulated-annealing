@@ -16,7 +16,7 @@ SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
   
   repeat
   {
-    repetPorTemp = 0
+    repetPorTemp = 0 # Contador de repeticiones por temperatura.
     
     repeat # En una temperatura fija.
     {
@@ -49,7 +49,11 @@ SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
       
       # Hasta condicion de equilibrio.
       if (repetPorTemp == maxRepPorTemp)
+      {
+        repetPorTemp = 0 # Contador de repeticiones por temperatura. 
         break
+      }
+        
     }
     
     Temp = g(Temp) # Actualizacion de temperatura.
