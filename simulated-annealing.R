@@ -25,8 +25,7 @@ SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
       repetPorTemp = repetPorTemp + 1
     
       sPrima = N(s) # Generar un vecino aleatorio.
-      print(Costo(s))
-      print(Costo(sPrima))
+      
       deltaE = Costo(s) - Costo(sPrima)
       
       # Evaluacion para aceptar o no la solucion que minimiza la función:
@@ -60,20 +59,21 @@ SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
     }
     
     Temp = gLinear(Tmax, repetTotal) # Actualizacion de temperatura.
-    print(Temp)
+    print(paste("Temp:", Temp))
     # Hasta criterio de detencion.
     if (Temp < Tmin)
       break
   }
   
+  print(paste("Costo sol. opt.: ", Costo(sOptima))) # Costo de solucion.
   return(sOptima) # Mejor solucion encontrada.
+  
 }
 
 # Decrecimiento de temperatura lineal.
 gLinear = function(T0, i){
   # TODO: obtener esta constante desde alguna confuguracion.
-  beta = 12 # Valor Cte
-  
+  beta = 5 # Valor Cte
   return(T0 - i * beta)
 }
 
