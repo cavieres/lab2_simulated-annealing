@@ -5,7 +5,7 @@ SA:
 
 Cooling:
     Linear:
-        Beta : 12
+        Beta : 7.4
 
 QAP:
     Flows : "inputs\\chr25a-f.txt"

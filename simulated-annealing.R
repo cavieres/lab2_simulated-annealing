@@ -1,11 +1,13 @@
 # Para ejecutar script, realizar en consola:
 # > setwd("<letra-unidad>:\\<carpeta-proyecto>")
 #   Ej: setwd("C:\\Users\\cavie\\desarrollo\\lab2_simulated-annealing")
+# > Establecer los parametros de configuracion del algoritmo en el archivo "config.yaml".
 # > source("simulated-annealing.R")
-# > SimulatedAnnealing(500, 0.01, 6)
+# > SimulatedAnnealing()
 
 library(tictoc)
 library(yaml)
+
 config = yaml.load_file("config.yaml")
 
 # Incluir liberia QAP para 
@@ -14,7 +16,7 @@ source("qap.R")
 
 SimulatedAnnealing = function() {
 
-  tic() # Medicion tiempo inicio ejecución.
+  tic("Tiempo") # Medicion tiempo inicio ejecución.
   
   Tmax = config$SA$Tmax
   Tmin = config$SA$Tmin
@@ -75,10 +77,11 @@ SimulatedAnnealing = function() {
       break
   }
   
-  print(paste("Costo sol. opt.: ", Costo(sOptima))) # Costo de solucion.
+  toc()
   
-  tiempoEjecucion = toc()
-  print(tiempoEjecucion) # Tiempo utilizado en busqueda solucion.
+  print(paste("Flujos: ", config$QAP$Flows))
+  print(paste("Distancias: ", config$QAP$Distances))
+  print(paste("Costo: ", Costo(sOptima))) # Costo de solucion.
   
   return(sOptima) # Mejor solucion encontrada.
   

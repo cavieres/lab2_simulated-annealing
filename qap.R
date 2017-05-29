@@ -2,8 +2,12 @@
 # Para ejecutar script, realizar en consola:
 # > setwd("<letra-unidad>:\\<carpeta-proyecto>")
 #   Ej: setwd("C:\\Users\\cavie\\desarrollo\\lab2_simulated-annealing")
+# > Establecer los parametros de configuracion del algoritmo en el archivo "config.yaml".
 # > source("qap.R")
 # > Costo(c(2, 1, 4, 3))
+
+library(yaml)
+config = yaml.load_file("config.yaml")
 
 # Matriz de flujos.
 #F <- matrix(c(0, 3, 0, 2, 3, 0, 0, 1, 0, 0, 0, 4, 2, 1, 4, 0), nrow = 4, ncol = 4)
@@ -34,14 +38,8 @@ Costo = function(ubicaciones) {
   costo = 0
   
   for(i in 1:length(ubicaciones)) {
-    for(j in 1:length(ubicaciones)) {
-      
-      flujo = f(i, j)
-      distancia = d(Fi(i, ubicaciones), Fi(j, ubicaciones))
-      
-      if (!is.null(flujo) && !is.null(distancia)) {
-        costo = costo + flujo * distancia
-      }
+    for(j in i:length(ubicaciones)) {
+      costo = costo + f(i, j) * d(Fi(i, ubicaciones), Fi(j, ubicaciones))
     }
   }
   
