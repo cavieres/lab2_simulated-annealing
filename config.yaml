@@ -1,0 +1,12 @@
+SA:
+    Tmax : 500
+    Tmin : 0.01
+    maxRepPorTemp : 6
+
+Cooling:
+    Linear:
+        Beta : 12
+
+QAP:
+    Flows : "inputs\\chr25a-f.txt"
+    Distances : "inputs\\chr25a-d.txt"

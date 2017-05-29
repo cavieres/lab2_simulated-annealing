@@ -7,11 +7,11 @@
 
 # Matriz de flujos.
 #F <- matrix(c(0, 3, 0, 2, 3, 0, 0, 1, 0, 0, 0, 4, 2, 1, 4, 0), nrow = 4, ncol = 4)
-F <- read.table("inputs\\chr12a-f.txt", header = FALSE)
+F <- read.table(config$QAP$Flows, header = FALSE)
 
 # Matriz de distancias
 #D <- matrix(c(0, 22, 53, 0, 22, 0, 40, 0, 53, 40, 0, 55, 0, 0, 55, 0), nrow = 4, ncol = 4)
-D <- read.table("inputs\\chr12a-d.txt", header = FALSE)
+D <- read.table(config$QAP$Distances, header = FALSE)
 
 # Ubicacion de instalacion i en arreglo de ubicaciones
 Fi = function(i, ubicaciones) {

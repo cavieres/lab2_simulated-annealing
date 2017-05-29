@@ -4,12 +4,19 @@
 # > source("simulated-annealing.R")
 # > SimulatedAnnealing(500, 0.01, 6)
 
+library(yaml)
+config = yaml.load_file("config.yaml")
+
 # Incluir liberia QAP para 
 # calculos de costos.
 source("qap.R")
 
-SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
+SimulatedAnnealing = function() {
 
+  Tmax = config$SA$Tmax
+  Tmin = config$SA$Tmin
+  maxRepPorTemp = config$SA$maxRepPorTemp
+  
   s = s0() # Generacion de la solucion inicial.
   sOptima = s0() # Se asume que la solucion optima es la inicial.
   Temp = Tmax # Temperatura inicial.
@@ -73,7 +80,7 @@ SimulatedAnnealing = function(Tmax, Tmin, maxRepPorTemp) {
 # Decrecimiento de temperatura lineal.
 gLinear = function(T0, i){
   # TODO: obtener esta constante desde alguna confuguracion.
-  beta = 5 # Valor Cte
+  beta = config$Cooling$Linear$Beta # Valor Cte
   return(T0 - i * beta)
 }
 
