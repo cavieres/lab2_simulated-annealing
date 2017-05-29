@@ -4,6 +4,7 @@
 # > source("simulated-annealing.R")
 # > SimulatedAnnealing(500, 0.01, 6)
 
+library(tictoc)
 library(yaml)
 config = yaml.load_file("config.yaml")
 
@@ -13,6 +14,8 @@ source("qap.R")
 
 SimulatedAnnealing = function() {
 
+  tic() # Medicion tiempo inicio ejecución.
+  
   Tmax = config$SA$Tmax
   Tmin = config$SA$Tmin
   maxRepPorTemp = config$SA$maxRepPorTemp
@@ -73,13 +76,16 @@ SimulatedAnnealing = function() {
   }
   
   print(paste("Costo sol. opt.: ", Costo(sOptima))) # Costo de solucion.
+  
+  tiempoEjecucion = toc()
+  print(tiempoEjecucion) # Tiempo utilizado en busqueda solucion.
+  
   return(sOptima) # Mejor solucion encontrada.
   
 }
 
 # Decrecimiento de temperatura lineal.
 gLinear = function(T0, i){
-  # TODO: obtener esta constante desde alguna confuguracion.
   beta = config$Cooling$Linear$Beta # Valor Cte
   return(T0 - i * beta)
 }
