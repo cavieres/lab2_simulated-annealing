@@ -38,8 +38,8 @@ Costo = function(ubicaciones) {
   costo = 0
   
   for(i in 1:length(ubicaciones)) {
-    for(j in i:length(ubicaciones)) {
-      costo = costo + f(i, j) * d(Fi(i, ubicaciones), Fi(j, ubicaciones))
+    for(j in 1:length(ubicaciones)) {
+        costo = costo + f(i, j) * d(Fi(i, ubicaciones), Fi(j, ubicaciones))
     }
   }
   
