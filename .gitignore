@@ -3,4 +3,4 @@
 .Rhistory
 
 # Exe apps
-.exe
+*.exe

@@ -1,12 +1,12 @@
 SA:
     Tmax : 500
     Tmin : 0.01
-    maxRepPorTemp : 6
+    maxRepPorTemp : 10
 
 Cooling:
     Linear:
-        Beta : 7.4
+        Beta : 2.4
 
 QAP:
-    Flows : "inputs\\lipa90b-f.txt"
-    Distances : "inputs\\lipa90b-d.txt"
+    Flows : "inputs\\lipa70a-f.txt"
+    Distances : "inputs\\lipa70a-d.txt"

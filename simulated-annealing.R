@@ -71,7 +71,10 @@ SimulatedAnnealing = function() {
     }
     
     Temp = gLinear(Tmax, repetTotal) # Actualizacion de temperatura.
-    print(paste("Temp:", Temp))
+    
+    print(paste("Temp  : ", Temp))
+    print(paste("Optimo: ", Costo(sOptima)))
+    
     # Hasta criterio de detencion.
     if (Temp < Tmin)
       break
