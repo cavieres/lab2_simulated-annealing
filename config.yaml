@@ -8,5 +8,5 @@ Cooling:
         Beta : 2.4
 
 QAP:
-    Flows : "inputs\\lipa70a-f.txt"
-    Distances : "inputs\\lipa70a-d.txt"
+    Flows : "inputs\\lipa90b-f.txt"
+    Distances : "inputs\\lipa90b-d.txt"
